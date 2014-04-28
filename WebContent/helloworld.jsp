@@ -7,6 +7,6 @@
 <title>A cool web page</title>
 </head>
 <body>
-<h1>Hello from a jsp</h1>
+<h1>${stringToDisplay}</h1>
 </body>
 </html>

@@ -30,6 +30,7 @@ public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("helloworld.jsp");
+        request.setAttribute("stringToDisplay", "A Crazy String");
         requestDispatcher.forward(request, response);
     }
 
