@@ -18,31 +18,31 @@ import com.worldfusion.models.CancerReference;
  * Servlet implementation class MainServlet
  */
 public class MainServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private DatabaseConnection databaseConnection;
-	
-	@Override
-	public void init() throws ServletException {
-		super.init();
-		databaseConnection = new MysqlDatabaseConnection("localhost", "programming_assignment", "root");
-	}
-	
-	@Override
-	public void destroy() {
-		super.destroy();
-		databaseConnection.close();
-	}
+    
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        databaseConnection = new MysqlDatabaseConnection("localhost", "programming_assignment", "root");
+    }
+    
+    @Override
+    public void destroy() {
+        super.destroy();
+        databaseConnection.close();
+    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<CancerReference> cancerReferences = new CancerReferenceFinder(databaseConnection).getAllCancerReferences();
-	    request.setAttribute("cancerReferences", cancerReferences);
+        request.setAttribute("cancerReferences", cancerReferences);
 
-	    RequestDispatcher requestDispatcher = request.getRequestDispatcher("main.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("main.jsp");
         requestDispatcher.forward(request, response);
-	}
+    }
 
 
 }

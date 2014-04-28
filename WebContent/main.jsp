@@ -7,27 +7,27 @@
 <title>Worldfusion Programming Exercise</title>
 </head>
 <body>
-	<table>
-	<thead>
-		<tr>
-			<th>Cancer Type</th>
-			<th>All</th>
-			<th>Year</th>
-			<th>Month</th>
-			<th>Recent</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% for(CancerReference cancerReference : ((List<CancerReference>)request.getAttribute("cancerReferences"))){ %>
-			<tr>
-				<td><%= cancerReference.getType() %></td>
-				<td><%= cancerReference.getAllCount() %></td>
-				<td><%= cancerReference.getYearCount() %></td>
-				<td><%= cancerReference.getMonthCount() %></td>
-				<td><%= cancerReference.getRecentCount() %></td>
-			</tr>
-		<% } %>
-	</tbody>
-	</table>
+    <table>
+    <thead>
+        <tr>
+            <th>Cancer Type</th>
+            <th>All</th>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Recent</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(CancerReference cancerReference : ((List<CancerReference>)request.getAttribute("cancerReferences"))){ %>
+            <tr>
+                <td><%= cancerReference.getType() %></td>
+                <td><%= cancerReference.getAllCount() %></td>
+                <td><%= cancerReference.getYearCount() %></td>
+                <td><%= cancerReference.getMonthCount() %></td>
+                <td><%= cancerReference.getRecentCount() %></td>
+            </tr>
+        <% } %>
+    </tbody>
+    </table>
 </body>
 </html>
