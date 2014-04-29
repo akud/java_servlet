@@ -13,6 +13,7 @@ import com.worldfusion.dao.ReferenceCountFinder;
 import com.worldfusion.database.DatabaseConnection;
 import com.worldfusion.database.MysqlDatabaseConnection;
 import com.worldfusion.models.ReferenceCount;
+import com.worldfusion.models.ReferenceCountType;
 
 /**
  * Servlet implementation class MainServlet
@@ -37,7 +38,7 @@ public class MainServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<ReferenceCount> cancerReferences = new ReferenceCountFinder(databaseConnection, "CANCER").getAllReferenceCounts();
+        List<ReferenceCount> cancerReferences = new ReferenceCountFinder(databaseConnection, ReferenceCountType.CANCER).getAllReferenceCounts();
         request.setAttribute("cancerReferences", cancerReferences);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("main.jsp");

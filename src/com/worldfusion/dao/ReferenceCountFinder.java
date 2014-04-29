@@ -6,6 +6,7 @@ import com.worldfusion.database.DatabaseConnection;
 import com.worldfusion.database.Row;
 import com.worldfusion.database.RowMapper;
 import com.worldfusion.models.ReferenceCount;
+import com.worldfusion.models.ReferenceCountType;
 
 public class ReferenceCountFinder {
     private static final String TYPE_COLUMN = "NAME";
@@ -17,12 +18,24 @@ public class ReferenceCountFinder {
     private DatabaseConnection databaseConnection;
     private final String tableName;
 
-    public ReferenceCountFinder(DatabaseConnection databaseConnection, String tableName) {
+    public ReferenceCountFinder(DatabaseConnection databaseConnection, ReferenceCountType type) {
         this.databaseConnection = databaseConnection;
-        this.tableName = tableName;
+        this.tableName = tableNameForType(type);
     }
     
     
+    private String tableNameForType(ReferenceCountType type) {
+        switch (type) {
+        case CANCER:
+            return "CANCER";
+        case ANTI_CANCER:
+            return "ANTICANCER_AGENT";
+        default:
+            throw new IllegalArgumentException("Unknown type: " + type);
+        }
+    }
+
+
     public List<ReferenceCount> getAllReferenceCounts() {
         return databaseConnection.runQuery("select * from " + tableName, new RowMapper<ReferenceCount>() {
             @Override
