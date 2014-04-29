@@ -11,12 +11,6 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>HelloWorldServlet</display-name>
-    <servlet-name>HelloWorldServlet</servlet-name>
-    <servlet-class>com.worldfusion.HelloWorldServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description></description>
     <display-name>MainServlet</display-name>
     <servlet-name>MainServlet</servlet-name>
     <servlet-class>com.worldfusion.servlet.MainServlet</servlet-class>
@@ -24,9 +18,5 @@
   <servlet-mapping>
     <servlet-name>MainServlet</servlet-name>
     <url-pattern>/</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>HelloWorldServlet</servlet-name>
-    <url-pattern>/HelloWorldServlet</url-pattern>
   </servlet-mapping>
 </web-app>
