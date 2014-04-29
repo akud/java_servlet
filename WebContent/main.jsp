@@ -18,7 +18,9 @@
         </tr>
     </thead>
     <tbody>
-        <% for(CancerReference cancerReference : ((List<CancerReference>)request.getAttribute("cancerReferences"))){ %>
+        <%
+            for(ReferenceCount cancerReference : ((List<ReferenceCount>)request.getAttribute("cancerReferences"))){
+        %>
             <tr>
                 <td><%= cancerReference.getType() %></td>
                 <td><%= cancerReference.getAllCount() %></td>

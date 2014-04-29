@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.worldfusion.dao.CancerReferenceFinder;
+import com.worldfusion.dao.ReferenceCountFinder;
 import com.worldfusion.database.DatabaseConnection;
 import com.worldfusion.database.MysqlDatabaseConnection;
-import com.worldfusion.models.CancerReference;
+import com.worldfusion.models.ReferenceCount;
 
 /**
  * Servlet implementation class MainServlet
@@ -37,7 +37,7 @@ public class MainServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<CancerReference> cancerReferences = new CancerReferenceFinder(databaseConnection).getAllCancerReferences();
+        List<ReferenceCount> cancerReferences = new ReferenceCountFinder(databaseConnection, "CANCER").getAllReferenceCounts();
         request.setAttribute("cancerReferences", cancerReferences);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("main.jsp");

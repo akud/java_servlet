@@ -1,6 +1,6 @@
 package com.worldfusion.models;
 
-public class CancerReference {
+public class ReferenceCount {
     private String type;
     private int allCount;
     private int yearCount;
