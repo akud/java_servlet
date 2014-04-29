@@ -41,6 +41,9 @@ public class MainServlet extends HttpServlet {
         List<ReferenceCount> cancerReferences = new ReferenceCountFinder(databaseConnection, ReferenceCountType.CANCER).getAllReferenceCounts();
         request.setAttribute("cancerReferences", cancerReferences);
 
+        List<ReferenceCount> anticancerReferences = new ReferenceCountFinder(databaseConnection, ReferenceCountType.ANTI_CANCER).getAllReferenceCounts();
+        request.setAttribute("anticancerReferences", anticancerReferences);
+        
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("main.jsp");
         requestDispatcher.forward(request, response);
     }

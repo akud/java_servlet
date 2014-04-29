@@ -31,5 +31,30 @@
         <% } %>
     </tbody>
     </table>
+    
+    <table>
+    <thead>
+        <tr>
+            <th>Anticancer Agent</th>
+            <th>All</th>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Recent</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%
+            for(ReferenceCount anticancerAgent : ((List<ReferenceCount>)request.getAttribute("anticancerReferences"))){
+        %>
+            <tr>
+                <td><%= anticancerAgent.getType() %></td>
+                <td><%= anticancerAgent.getAllCount() %></td>
+                <td><%= anticancerAgent.getYearCount() %></td>
+                <td><%= anticancerAgent.getMonthCount() %></td>
+                <td><%= anticancerAgent.getRecentCount() %></td>
+            </tr>
+        <% } %>
+    </tbody>
+    </table>
 </body>
 </html>
